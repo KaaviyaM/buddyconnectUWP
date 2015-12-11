@@ -1,0 +1,131 @@
+﻿<Page Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    x:Class="buddyconnectUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:buddyconnectUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="hamburgerButton" 
+                    FontFamily="Segoe MDL2 Assets" 
+                    Content="&#xE700;"
+                    Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                    FontSize="30"
+                    Click="hamburgerButton_Click"
+                    RelativePanel.AlignLeftWithPanel="True"/>
+                <TextBlock x:Name="title"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           Text="Buddy Connect"
+                           Style="{ThemeResource tb1}"
+                           HorizontalAlignment="Left"
+                           Margin="50,0,0,0"/>
+            </Grid>
+            <SplitView x:Name="mySplitView" 
+                   Grid.Row="1"                    
+                   CompactPaneLength="50" 
+                   OpenPaneLength="200" 
+                   DisplayMode="CompactOverlay" 
+                   IsPaneOpen="False">
+                <SplitView.Pane>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ListBox x:Name="menuItems"
+                             RelativePanel.AlignTopWithPanel="True"
+                         SelectionMode="Single"
+                         SelectionChanged="menuItems_SelectionChanged">
+                                <ListBoxItem x:Name="home">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe10f;" 
+                                       FontSize="24"/>
+                                        <TextBlock Margin="20,0,0,0" 
+                                       Text="home" 
+                                        Style="{ThemeResource tbHam}"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem x:Name="profile">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe156;" 
+                                       FontSize="24"/>
+                                        <TextBlock Margin="20,0,0,0" 
+                                       Text="profile" 
+                                        Style="{ThemeResource tbHam}"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem x:Name="findFriends">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe748;" 
+                                       FontSize="24"/>
+                                        <TextBlock Margin="20,0,0,0" 
+                                       Text="find friend" 
+                                        Style="{ThemeResource tbHam}"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem x:Name="requests">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe1a6;" 
+                                       FontSize="24"/>
+                                        <TextBlock Margin="20,0,0,0" 
+                                       Text="requests" 
+                                        Style="{ThemeResource tbHam}"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem x:Name="friendLocation">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe759;" 
+                                       FontSize="24"/>
+                                        <TextBlock Margin="20,0,0,0" 
+                                       Text="friends location" 
+                                        Style="{ThemeResource tbHam}"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem x:Name="settings">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe713;" 
+                                       FontSize="24"/>
+                                        <TextBlock Margin="20,0,0,0" 
+                                       Text="settings" 
+                                       Style="{ThemeResource tbHam}"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                            </ListBox>
+                            <HyperlinkButton Content="about" 
+                                     FontSize="15"
+                                     Grid.Row="1"
+                                     VerticalAlignment="Bottom"
+                                     HorizontalAlignment="Right"
+                                     Margin="0,0,15,10"/>
+                        </Grid>
+                    </ScrollViewer>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Frame x:Name="contentFrame" 
+                           Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+                </SplitView.Content>
+            </SplitView>
+        </Grid>
+    </Grid>
+</Page>
